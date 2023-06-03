@@ -1,7 +1,10 @@
-import "./App.css";
-
+import TogglePage from "../src/pages/TogglePage";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <TogglePage />
+    </div>
+  );
 }
 
 export default App;
