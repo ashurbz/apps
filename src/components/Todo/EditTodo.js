@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const EditTodo = ({ editTodo, tasks }) => {
   const [show, setShow] = useState(false);
-  const [editText, setEditText] = useState(tasks.task);
-
+  const [editText, setEditText] = useState("");
+  console.log(tasks);
   const handleOnChange = (e) => {
     setEditText(e.target.value);
   };

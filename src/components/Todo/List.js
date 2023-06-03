@@ -6,7 +6,7 @@ const List = ({ tasks, deleteTodo, editTodo, id }) => {
   };
   return (
     <div>
-      {tasks.map((task, index) => {
+      {tasks.map((task) => {
         return (
           <div
             className=" flex justify-between p-3 border border-black m-2 bg-gray-300"
@@ -27,7 +27,7 @@ const List = ({ tasks, deleteTodo, editTodo, id }) => {
                 ❌
               </button>
 
-              <EditTodo tasks={tasks} editTodo={editTodo} id={id} />
+              <EditTodo tasks={task} editTodo={editTodo} id={id} />
             </div>
           </div>
         );
