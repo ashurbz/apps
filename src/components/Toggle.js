@@ -6,6 +6,13 @@ const Toggle = () => {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          setOn(!on);
+        }}
+      >
+        {on ? "On" : "Off"}
+      </button>
       {/* {show ? (
         <button
           onClick={() => {
