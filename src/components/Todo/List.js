@@ -1,12 +1,12 @@
 import React from "react";
 import EditTodo from "./EditTodo";
-const List = ({ tasks, deleteTodo }) => {
+const List = ({ tasks, deleteTodo, editTodo, id }) => {
   const handleTodoDelete = (id) => {
     deleteTodo(id);
   };
   return (
     <div>
-      {tasks.map((task) => {
+      {tasks.map((task, index) => {
         return (
           <div
             className=" flex justify-between p-3 border border-black m-2 bg-gray-300"
@@ -14,7 +14,7 @@ const List = ({ tasks, deleteTodo }) => {
           >
             <div>
               <ul>
-                <li className="text-2xl">{task.text.toUpperCase()}</li>
+                <li className="text-2xl">{task.text}</li>
               </ul>
             </div>
             <div className="flex">
@@ -27,7 +27,7 @@ const List = ({ tasks, deleteTodo }) => {
                 ❌
               </button>
 
-              <EditTodo />
+              <EditTodo tasks={tasks} editTodo={editTodo} id={id} />
             </div>
           </div>
         );

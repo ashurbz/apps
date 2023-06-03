@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 
-const EditTodo = () => {
+const EditTodo = ({ editTodo, tasks }) => {
   const [show, setShow] = useState(false);
+  const [editText, setEditText] = useState(tasks.task);
+
+  const handleOnChange = (e) => {
+    setEditText(e.target.value);
+  };
+
   const handleShowEdit = () => {
     setShow(!show);
+  };
+
+  const handleOnClick = () => {
+    editTodo(tasks.id, editText);
+    setShow(false);
   };
 
   return (
@@ -13,8 +24,13 @@ const EditTodo = () => {
       </button>
       {show && (
         <div>
-          <input />
-          <button>Save Task</button>
+          <input
+            type="text"
+            placeholder="Edit Task..."
+            value={editText}
+            onChange={handleOnChange}
+          />
+          <button onClick={handleOnClick}>Save Task</button>
         </div>
       )}
     </div>

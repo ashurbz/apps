@@ -8,7 +8,7 @@ const Todo = () => {
     setText(e.target.value);
   };
 
-  const id = Math.floor(Math.random() * 999);
+  const id = Math.trunc(Math.random() * 9999);
 
   const handleOnClick = () => {
     setTaskList([...taskList, { text: text, id: id }]);
@@ -22,6 +22,18 @@ const Todo = () => {
       }
     });
     setTaskList(deletedItems);
+  };
+
+  const handleEditTodo = (id, newTask) => {
+    console.log(id);
+    const updatedList = taskList.map((task, index) => {
+      if (task.id === id) {
+        return { ...task, text: newTask };
+      }
+      return task;
+    });
+    setTaskList(updatedList);
+    console.log(taskList);
   };
 
   return (
@@ -44,7 +56,12 @@ const Todo = () => {
         </button>
       </div>
       <div>
-        <List deleteTodo={handleDeleteTodo} tasks={taskList} />
+        <List
+          deleteTodo={handleDeleteTodo}
+          tasks={taskList}
+          editTodo={handleEditTodo}
+          id={id}
+        />
       </div>
     </>
   );
