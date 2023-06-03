@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Toggle = () => {
+const Toggle = ({ onn, off }) => {
   //   const [show, setShow] = useState(false);
   const [on, setOn] = useState(false);
 
@@ -13,7 +13,7 @@ const Toggle = () => {
           setOn(!on);
         }}
       >
-        {on ? "On" : "Off"}
+        {on ? onn : off}
       </button>
       {/* {show ? (
         <button

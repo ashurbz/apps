@@ -4,7 +4,7 @@ import Toggle from "../components/Toggle";
 const TogglePage = () => {
   return (
     <div>
-      <Toggle />
+      <Toggle onn="On" off="Off" />
     </div>
   );
 };
