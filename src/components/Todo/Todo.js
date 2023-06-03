@@ -14,6 +14,16 @@ const Todo = () => {
     setTaskList([...taskList, { text: text, id: id }]);
     setText("");
   };
+  //4  1 2 3 4
+  const handleDeleteTodo = (id) => {
+    const deletedItems = taskList.filter((task) => {
+      if (id !== task.id) {
+        return task;
+      }
+      console.log(task);
+    });
+    setTaskList(deletedItems);
+  };
 
   return (
     <>
@@ -35,7 +45,7 @@ const Todo = () => {
         </button>
       </div>
       <div>
-        <List tasks={taskList} />
+        <List deleteTodo={handleDeleteTodo} tasks={taskList} />
       </div>
     </>
   );
